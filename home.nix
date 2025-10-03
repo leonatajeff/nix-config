@@ -27,13 +27,13 @@
   # Program-specific configurations
   programs.git = {
     enable = true;
-    userName = "Jeff";
-    userEmail = "jeff@example.com"; # Change this
+    userName = "leonatajeff";
+    userEmail = "jeffleonata@gmail.com"; # Change this
   };
 
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
   };
