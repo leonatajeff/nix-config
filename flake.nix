@@ -25,7 +25,7 @@
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [ 
-		nixvim.homeManagerModules.nixvim
+		nixvim.homeModules.nixvim
 		./home.nix 
 		];
       };
