@@ -1,40 +1,25 @@
-# /Users/jeffleonata/nix-config/flake.nix (updated)
+# ~/nix-config/flake.nix
 {
-  description = "Jeff Leonata's declarative macOS configuration";
+  description = "Jeff's NixOS Configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
-    nix-darwin.url = "github:lnl7/nix-darwin/nix-darwin-24.11";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-  };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
-  let
-    system = "aarch64-darwin"; # IMPORTANT: Confirm this for your Mac
-  in
-  {
-    darwinConfigurations."jeffleonata" = nix-darwin.lib.darwinSystem {
-      system = system;
-      modules = [
-        ./darwin-configuration.nix # <-- Import your system configuration here
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.jeffleonata = import ./home-configuration.nix;
-        }
-      ];
-    };
-
-    devShells.default = nixpkgs.mkShell {
-      packages = with nixpkgs; [
-        nil
-        nixpkgs-fmt
-        nix-tree
-      ];
-      shellHook = "echo 'Entering development shell for Nix flake.'";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
+  outputs = { self, nixpkgs, home-manager, ... }:
+    let
+      # Replace with your actual username and system architecture
+      system = "aarch64-darwin";
+      username = "jeff";
+    in {
+      homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        modules = [ ./home.nix ];
+      };
+    };
 }
