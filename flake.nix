@@ -15,7 +15,7 @@
     let
       # Replace with your actual username and system architecture
       system = "aarch64-darwin";
-      username = "jeff";
+      username = "jeffleonata";
     in {
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};

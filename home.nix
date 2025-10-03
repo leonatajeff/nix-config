@@ -3,8 +3,8 @@
 
 {
   # Set your basic home environment variables
-  home.username = "jeff";
-  home.homeDirectory = "/Users/jeff";
+  home.username = "jeffleonata";
+  home.homeDirectory = "/Users/leonata";
 
   # This is crucial for managing breaking changes
   home.stateVersion = "24.05";
