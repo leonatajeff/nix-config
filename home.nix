@@ -32,7 +32,6 @@
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-completions
-    powerlevel10k # The prompt
   ];
 
   # Program-specific configurations

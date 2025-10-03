@@ -23,8 +23,8 @@
       luasnip.enable = true;
 
       # UI/Theme
-      tokyonight.enable = true;
       lualine.enable = true;
+      web-devicons.enable = true;
 
       # Tools
       telescope.enable = true;

@@ -5,8 +5,7 @@
   programs.zsh = {
     enable = true;
     # Use the ZDOTDIR to keep the home directory clean
-    dotDir = ".config/zsh";
-
+    dotDir = "${config.xdg.configHome}/zsh";
     # Sensible history configuration
     history = {
       size = 10000;
@@ -41,7 +40,7 @@
 
     # This is the escape hatch for anything not covered by a Nix option.
     # We use it to initialize zoxide and powerlevel10k.
-    initExtra = ''
+    initContent = ''
       # Initialize zoxide (which you already have installed)
       eval "$(zoxide init zsh)"
 
@@ -50,9 +49,4 @@
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
   };
-
-  # Set your default shell
-  programs.home-manager.sharedModules = [{
-    users.users.${config.home.username}.shell = pkgs.zsh;
-  }];
 }
