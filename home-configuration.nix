@@ -93,5 +93,5 @@
 
   # This value determines the Home Manager release that your configuration is compatible with.
   # Match it with the Nixpkgs version or a recent stable version.
-  home.stateVersion = "23.11"; # Or "24.05" for a newer release, etc.
+  home.stateVersion = "24.11"; # Or "24.05" for a newer release, etc.
 }
