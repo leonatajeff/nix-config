@@ -2,6 +2,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+   ./modules/zsh.nix
+   ./modules/neovim.nix
+  ]
   # Set your basic home environment variables
   home.username = "jeffleonata";
   home.homeDirectory = "/Users/leonata";

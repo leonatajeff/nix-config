@@ -9,9 +9,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, nixvim, ... }:
     let
       # Replace with your actual username and system architecture
       system = "aarch64-darwin";
@@ -19,7 +24,10 @@
     in {
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        modules = [ ./home.nix ];
+        modules = [ 
+		nixvim.homeManagerModules.nixvim
+		./home.nix 
+		];
       };
     };
 }
