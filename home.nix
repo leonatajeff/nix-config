@@ -5,6 +5,7 @@
   imports = [
    ./modules/zsh.nix
    ./modules/neovim.nix
+   ./modules/tmux.nix
   ];
   # Set your basic home environment variables
   home.username = "jeffleonata";
@@ -20,6 +21,8 @@
     neovim
     ripgrep
     fd
+    tree
+    tmux
     zoxide
     gh # GitHub CLI
 
@@ -27,6 +30,8 @@
     htop
     eza # A modern `ls`
 
+    uv
+    ollama
 	
     # Zsh Plugins
     zsh-autosuggestions

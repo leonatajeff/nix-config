@@ -18,18 +18,10 @@
     # Enable plugins from the curated list
     plugins = {
       # Syntax and completions
-      treesitter.enable = true;
-      cmp.enable = true;
-      luasnip.enable = true;
 
       # UI/Theme
-      lualine.enable = true;
-      web-devicons.enable = true;
 
       # Tools
-      telescope.enable = true;
-      gitsigns.enable = true;
-      which-key.enable = true;
     };
 
     # Keymaps are defined in a structured way

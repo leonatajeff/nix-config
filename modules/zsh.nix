@@ -28,25 +28,24 @@
     # Oh My Zsh provides a solid plugin management framework
     oh-my-zsh = {
       enable = true;
-      # This is the secret to using Powerlevel10k with Oh My Zsh
-      theme = "powerlevel10k/powerlevel10k";
       plugins = [
         "git"
-        "zsh-autosuggestions"
-        "zsh-syntax-highlighting"
-        "zsh-completions" # Adds many useful completions
       ];
     };
 
     # This is the escape hatch for anything not covered by a Nix option.
     # We use it to initialize zoxide and powerlevel10k.
-    initContent = ''
-      # Initialize zoxide (which you already have installed)
-      eval "$(zoxide init zsh)"
+initContent = ''
+  # Initialize zoxide
+  eval "$(zoxide init zsh)"
 
-      # Powerlevel10k's configuration wizard creates this file.
-      # This line sources it if it exists.
-      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-    '';
+  # Source Nix environment if present
+  if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
+    . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+  fi
+
+  # Powerlevel10k's configuration wizard creates this file.
+  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+'';
   };
 }
