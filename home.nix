@@ -62,4 +62,23 @@
 
   # Let Home Manager handle Zsh startup
   programs.home-manager.enable = true;
+
+  # Link Applications to ~/Applications/Nix Apps
+  home.activation = {
+    linkApplications = ''
+      ${pkgs.writeShellScript "link-applications" ''
+        set -e
+        echo "Linking applications..."
+        app_dir="$HOME/Applications/Nix Apps"
+        mkdir -p "$app_dir"
+        for app in ${pkgs.alacritty}/Applications/* ${pkgs.aerospace}/Applications/*; do
+          if [ -e "$app" ]; then
+            echo "Linking $app to $app_dir/"
+            ln -sf "$app" "$app_dir/"
+          fi
+        done
+        echo "Finished linking applications."
+      ''}
+    '';
+  };
 }
