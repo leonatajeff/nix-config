@@ -3,12 +3,13 @@
 
 {
   imports = [
+   ./modules/git.nix
    ./modules/zsh.nix
    ./modules/neovim.nix
    ./modules/tmux.nix
    ./modules/ghostty.nix
   ];
-  
+
   # Set your basic home environment variables
   home.username = "jeffleonata";
   home.homeDirectory = "/Users/leonata";
@@ -19,7 +20,6 @@
   # The list of packages you want to have installed.
   home.packages = with pkgs; [
     # Dev essentials
-    git
     lazygit
     neovim
     ripgrep
@@ -48,11 +48,6 @@
   ];
 
   # Program-specific configurations
-  programs.git = {
-    enable = true;
-    userName = "leonatajeff";
-    userEmail = "jeffleonata@gmail.com"; # Change this
-  };
 
   programs.zsh = {
     enable = true;
