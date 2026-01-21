@@ -18,6 +18,7 @@
   home.packages = with pkgs; [
     # Dev essentials
     git
+    lazygit
     neovim
     ripgrep
     fd
@@ -26,6 +27,8 @@
     zoxide
     gh # GitHub CLI
 
+    alacritty
+    ffmpeg
     # General utils
     htop
     eza # A modern `ls`
