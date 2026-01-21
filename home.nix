@@ -6,8 +6,9 @@
    ./modules/zsh.nix
    ./modules/neovim.nix
    ./modules/tmux.nix
-   ./modules/alacritty.nix
+   ./modules/ghostty.nix
   ];
+  
   # Set your basic home environment variables
   home.username = "jeffleonata";
   home.homeDirectory = "/Users/leonata";
