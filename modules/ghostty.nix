@@ -5,6 +5,8 @@
   programs.ghostty = {
     enable = true;
 
+    package = pkgs.ghostty-bin;
+
     # Keep it minimal and portable
     settings = {
       font-family = "JetBrainsMono Nerd Font";
