@@ -28,7 +28,10 @@
     gh # GitHub CLI
     gemini-cli
 
+    # apps
     alacritty
+    aerospace
+
     ffmpeg
     # General utils
     htop
