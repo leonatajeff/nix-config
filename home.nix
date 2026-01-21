@@ -26,35 +26,21 @@
     fd
     tree
     tmux
-    zoxide
     gh # GitHub CLI
-    gemini-cli
 
+    # python
+    uv
+    
     # apps
     aerospace
 
     ffmpeg
     # General utils
     htop
-    eza # A modern `ls`
 
-    uv
+    gemini-cli
     ollama
-	
-    # Zsh Plugins
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    zsh-completions
   ];
-
-  # Program-specific configurations
-
-  programs.zsh = {
-    enable = true;
-    autosuggestion.enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-  };
 
   # Let Home Manager handle Zsh startup
   programs.home-manager.enable = true;

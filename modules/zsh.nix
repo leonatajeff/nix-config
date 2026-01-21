@@ -1,51 +1,55 @@
 # ~/nix-config/modules/zsh.nix
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
+  xdg.enable = true;
+
   programs.zsh = {
     enable = true;
-    # Use the ZDOTDIR to keep the home directory clean
+
+    # Keep zsh files out of ~
     dotDir = "${config.xdg.configHome}/zsh";
-    # Sensible history configuration
+
     history = {
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
-      share = true; # Share history between all sessions
+      share = true;
+      ignoreDups = true;
+      ignoreSpace = true;
+      extended = true;
     };
 
-    # Shell aliases
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
     shellAliases = {
-      # Navigation
       ".." = "cd ..";
       "..." = "cd ../..";
-      # Listing files with eza (which you already have)
+
       l = "eza -l --color=always --git";
       ls = "eza --color=always";
       la = "eza -la --color=always --git";
       lt = "eza -T --color=always";
     };
 
-    # Oh My Zsh provides a solid plugin management framework
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "git"
-      ];
-    };
+    initExtra = ''
+      # zoxide
+      eval "$(${lib.getExe pkgs.zoxide} init zsh)"
 
-    # This is the escape hatch for anything not covered by a Nix option.
-    # We use it to initialize zoxide and powerlevel10k.
-initContent = ''
-  # Initialize zoxide
-  eval "$(zoxide init zsh)"
-
-  # Source Nix environment if present
-  if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
-    . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-  fi
-
-  # Powerlevel10k's configuration wizard creates this file.
-  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-'';
+      # nice-to-have defaults
+      setopt AUTO_CD
+      setopt INTERACTIVE_COMMENTS
+      setopt HIST_FCNTL_LOCK
+    '';
   };
+
+  # Put zsh-related packages here so home.nix stays clean
+  home.packages = with pkgs; [
+    eza
+    zoxide
+
+    # If you want completion for lots of stuff:
+    zsh-completions
+  ];
 }
