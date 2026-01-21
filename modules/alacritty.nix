@@ -9,7 +9,7 @@
       env.TERM = "xterm-256color";
 
       window = {
-        padding = { x = 10; y = 10; };
+        padding = { x = 20; y = 20; };
         dynamic_padding = true;
 
         # macOS-specific nicety; safe on Linux too, but you can gate it if you want
