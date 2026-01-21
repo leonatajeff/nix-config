@@ -6,6 +6,7 @@
    ./modules/zsh.nix
    ./modules/neovim.nix
    ./modules/tmux.nix
+   ./modules/alacritty.nix
   ];
   # Set your basic home environment variables
   home.username = "jeffleonata";
@@ -29,7 +30,6 @@
     gemini-cli
 
     # apps
-    alacritty
     aerospace
 
     ffmpeg
@@ -62,8 +62,4 @@
 
   # Let Home Manager handle Zsh startup
   programs.home-manager.enable = true;
-
-  # Link Applications to ~/Applications/Nix Apps
-  home.file.".Applications/Nix Apps/Alacritty.app".source = "${pkgs.alacritty}/Applications/Alacritty.app";
-  home.file.".Applications/Nix Apps/AeroSpace.app".source = "${pkgs.aerospace}/Applications/AeroSpace.app";
 }

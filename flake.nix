@@ -14,9 +14,11 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mac-app-util.url = "github:hraban/mac-app-util";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, ... }:
+  outputs = { self, nixpkgs, home-manager, nixvim, mac-app-util, ... }:
     let
       # Replace with your actual username and system architecture
       system = "aarch64-darwin";
@@ -25,9 +27,10 @@
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [ 
-		nixvim.homeModules.nixvim
-		./home.nix 
-		];
+          nixvim.homeModules.nixvim
+          mac-app-util.homeManagerModules.default
+          ./home.nix 
+		    ];
       };
     };
 }
