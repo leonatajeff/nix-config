@@ -26,6 +26,7 @@
     tmux
     zoxide
     gh # GitHub CLI
+    gemini-cli
 
     alacritty
     ffmpeg
