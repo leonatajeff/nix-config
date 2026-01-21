@@ -1,11 +1,10 @@
+# ~/nix-config/modules/git.nix
 { ... }:
-let
-  secrets = import ../secrets.nix;
-in
+
 {
   programs.git = {
     enable = true;
-    userName = secrets.gitUserName;
-    userEmail = secrets.gitUserEmail;
+    userName = "leonatajeff";
+    userEmail = "jeffleonata@gmail.com";
   };
 }
