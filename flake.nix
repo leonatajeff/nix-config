@@ -26,10 +26,11 @@
     in {
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        modules = [ 
+        modules = [
+          { nixpkgs.config.allowUnfree = true; }
           nixvim.homeModules.nixvim
           mac-app-util.homeManagerModules.default
-          ./home.nix 
+          ./home.nix
 		    ];
       };
     };

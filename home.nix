@@ -40,6 +40,7 @@
 
     gemini-cli
     ollama
+    claude-code
   ];
 
   # Let Home Manager handle Zsh startup
