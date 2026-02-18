@@ -14,6 +14,9 @@
 
       window-padding-x = 20;
       window-padding-y = 20;
+
+      macos-titlebar-style = "hidden";
+      font-thicken = true;
     };
   };
 

@@ -42,7 +42,7 @@
       setopt INTERACTIVE_COMMENTS
       setopt HIST_FCNTL_LOCK
 
-      PROMPT='%F{green}%B%n%b%f:%F{blue}%~%f%# '
+      PROMPT='%F{blue}%B%~%b%f %(?.%F{green}.%F{red})%#%f '
     '';
   };
 
