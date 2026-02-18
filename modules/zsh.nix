@@ -33,7 +33,7 @@
       lt = "eza -T --color=always";
     };
 
-    initExtra = ''
+    initContent = ''
       # zoxide
       eval "$(${lib.getExe pkgs.zoxide} init zsh)"
 
@@ -41,6 +41,8 @@
       setopt AUTO_CD
       setopt INTERACTIVE_COMMENTS
       setopt HIST_FCNTL_LOCK
+
+      PROMPT='%F{green}%n%f:%F{blue}%~%f%# '
     '';
   };
 
