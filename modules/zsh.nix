@@ -46,6 +46,10 @@
     '';
   };
 
+  home.sessionVariables = {
+    PATH = "$PATH:/Applications/Obsidian.app/Contents/MacOS";
+  };
+
   # Put zsh-related packages here so home.nix stays clean
   home.packages = with pkgs; [
     eza

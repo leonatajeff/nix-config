@@ -28,11 +28,13 @@
     tmux
     gh # GitHub CLI
 
+    nodejs_24
     # python
     uv
     
     # apps
     aerospace
+    wireshark
 
     ffmpeg
     # General utils
