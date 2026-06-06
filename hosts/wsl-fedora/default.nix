@@ -12,7 +12,6 @@
 {
   imports = [
     ../../modules/common.nix # core tools
-    ../../modules/git.nix
     ../../modules/zsh.nix
     ../../modules/neovim.nix
     ../../modules/tmux.nix
@@ -27,6 +26,7 @@
 
   # The list of packages you want to have installed.
   home.packages = with pkgs; [
+    gawk
     dnsutils
   ];
 
